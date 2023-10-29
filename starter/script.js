@@ -91,8 +91,7 @@ var upperCasedCharacters = [
 // Function to prompt user for password options
 
 function getPasswordOptions() {
-
-  var newPassword = [];
+  var passwordOptions = [];
   // var userLength = prompt("Choose password length between 8-128 characters.");
   // if (userLength >= 8 && userLength <= 128) {
   //   // need to store userLength somehow
@@ -103,40 +102,39 @@ function getPasswordOptions() {
 
   while (true) {
     userLength = prompt("Choose password length between 8-128 characters.");
-  if (userLength >= 8 && userLength <= 128) {
-    userLength = +userLength;
-    break;
-  } else {
-    alert("You must choose a length between 8-128 characters");
-  }; }
+    if (userLength >= 8 && userLength <= 128) {
+      userLength = parseInt(userLength);
+      break;
+    } else {
+      alert("You must choose a length between 8-128 characters");
+    }
+  }
 
- 
   var lowercase = confirm("Include lowercase characters?");
 
   if (lowercase) {
-    newPassword = newPassword.push(lowerCasedCharacters);
-  } ;
+    passwordOptions.push(lowerCasedCharacters);
+  }
 
   var uppercase = confirm("Include uppercase characters?");
 
   if (uppercase) {
-    newPassword = newPassword.push(upperCasedCharacters);
-  } ;
+    passwordOptions.push(upperCasedCharacters);
+  }
 
   var numeric = confirm("Include numeric data?");
 
   if (numeric) {
-    newPassword = newPassword.push(numericCharacters);
-  } ;
-  
+     passwordOptions.push(numericCharacters);
+  }
+
   var special = confirm("Include special characters?");
-
+ 
   if (special) {
-    newPassword = newPassword.push(specialCharacters);
-    return newPassword;
-  } ;
+    passwordOptions.push(specialCharacters);
+    return passwordOptions;
+  }
 }
-
 // start with empty array
 // use the prompt function to ask the user
 // ask for length  and different character classes
@@ -150,7 +148,8 @@ function getPasswordOptions() {
 function getRandom(arr) {
   // build an array of all possible options based on user preferences
 
-newPassword = math.random(newPassword)
+getRandom
+
 }
 
 // Function to generate password with user input
@@ -158,6 +157,7 @@ newPassword = math.random(newPassword)
 function generatePassword() {
   // runs getPasswordOptions function
   var options = getPasswordOptions();
+  options = getRandom.newPassword;
   // connect all arrays that user said that want to use
   // use conditionals to choose which arrays to concatenate
   // e.g. special charactesr/lowercase
