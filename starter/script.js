@@ -133,8 +133,7 @@ function getPasswordOptions() {
   if (special) {
     passwordOptions.push.apply(passwordOptions, specialCharacters);
   }
-  console.log(passwordOptions)
-   return passwordOptions;
+   return [passwordOptions, userLength];
 };
 // start with empty array
 // use the prompt function to ask the user
@@ -148,8 +147,11 @@ function getPasswordOptions() {
 // Function for getting a random element from an array
 function getRandom(arr) {
   // build an array of all possible options based on user preferences
+userLength 
 
-getRandom()
+Math.random() 
+
+
 
 }
 
@@ -158,7 +160,12 @@ getRandom()
 function generatePassword() {
   // runs getPasswordOptions function
   var options = getPasswordOptions();
- 
+
+ for (var i = 0; i < options[1]; i++ ) {
+  
+  getRandom(options[0]) 
+
+ }
   // connect all arrays that user said that want to use
   // use conditionals to choose which arrays to concatenate
   // e.g. special charactesr/lowercase
