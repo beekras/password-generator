@@ -125,16 +125,16 @@ function getPasswordOptions() {
   var numeric = confirm("Include numeric data?");
 
   if (numeric) {
-     passwordOptions.push.apply(passwordOptions, numericCharacters);
+    passwordOptions.push.apply(passwordOptions, numericCharacters);
   }
 
   var special = confirm("Include special characters?");
- 
+
   if (special) {
     passwordOptions.push.apply(passwordOptions, specialCharacters);
   }
-   return [passwordOptions, userLength];
-};
+  return [passwordOptions, userLength];
+}
 // start with empty array
 // use the prompt function to ask the user
 // ask for length  and different character classes
@@ -147,25 +147,23 @@ function getPasswordOptions() {
 // Function for getting a random element from an array
 function getRandom(arr) {
   // build an array of all possible options based on user preferences
-userLength 
-
-Math.random() 
-
-
-
+ 
+ Math.floor(Math.random()) * options[0] ;
 }
 
 // Function to generate password with user input
 
 function generatePassword() {
   // runs getPasswordOptions function
+  var newPassword;
   var options = getPasswordOptions();
 
- for (var i = 0; i < options[1]; i++ ) {
-  
-  getRandom(options[0]) 
+  for (var i = 0; i < options[1]; i++) {
+    randomCharacter = getRandom(options[0]);
 
- }
+    newPassword += randomCharacter;
+  }
+
   // connect all arrays that user said that want to use
   // use conditionals to choose which arrays to concatenate
   // e.g. special charactesr/lowercase
