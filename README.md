@@ -32,7 +32,11 @@ Application must:
 
 ## Deployed Application
 
+https://beekras.github.io/password-generator/
+
 ## Screenshot
+
+![Alt text](image.png)
 
 ## License
 
