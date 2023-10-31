@@ -91,15 +91,17 @@ var upperCasedCharacters = [
 // Function to prompt user for password options
 
 function getPasswordOptions() {
+  
+// start with empty array
+// use the prompt function to ask the user
+// ask for length  and different character classes
+//  use if statements to evaluate if user has met criteria e.g input number is between 8 and 128
+// - user "Number" to convert a string into a number OR pareseInt OR +userLength
+// store what user says on confirm/alerts
+// use confirm statements
+// if confirm returns true, push info about the character into the array
   var passwordOptions = [];
-  // var userLength = prompt("Choose password length between 8-128 characters.");
-  // if (userLength >= 8 && userLength <= 128) {
-  //   // need to store userLength somehow
-  //   // userLength = newPassword.length ?
-  //    userLength = +userLength
-  // } else {
-  //   prompt("You must choose a length between 8-128 characters");
-
+ 
   while (true) {
     userLength = prompt("Choose password length between 8-128 characters.");
     if (userLength >= 8 && userLength <= 128) {
@@ -113,70 +115,53 @@ function getPasswordOptions() {
   var lowercase = confirm("Include lowercase characters?");
 
   if (lowercase) {
-    passwordOptions.push.apply(passwordOptions, lowerCasedCharacters);
+    passwordOptions = passwordOptions.concat(lowerCasedCharacters);
   }
 
   var uppercase = confirm("Include uppercase characters?");
 
   if (uppercase) {
-    passwordOptions.push.apply(passwordOptions, upperCasedCharacters);
+     passwordOptions = passwordOptions.concat(upperCasedCharacters);
   }
 
   var numeric = confirm("Include numeric data?");
 
   if (numeric) {
-    passwordOptions.push.apply(passwordOptions, numericCharacters);
+    passwordOptions = passwordOptions.concat(numericCharacters);
   }
 
   var special = confirm("Include special characters?");
 
   if (special) {
-    passwordOptions.push.apply(passwordOptions, specialCharacters);
+    passwordOptions = passwordOptions.concat(specialCharacters);
   }
   return [passwordOptions, userLength];
 }
-// start with empty array
-// use the prompt function to ask the user
-// ask for length  and different character classes
-//  use if statements to evaluate if user has met criteria e.g input number is between 8 and 128
-// - user "Number" to convert a string into a number OR pareseInt OR +userLength
-// store what user says on confirm/alerts
-// use confirm statements
-// if confirm returns true, push info about the character into the array
 
-// Function for getting a random element from an array
-function getRandom(arr) {
-  // build an array of all possible options based on user preferences
- 
- Math.floor(Math.random()) * options[0] ;
-}
+// connect all arrays that user said that want to use
+  // use conditionals to choose which arrays to concatenate
+  // e.g. special charactesr/lowercase
+  // put those arrays together << done in first function
 
 // Function to generate password with user input
-
 function generatePassword() {
-  // runs getPasswordOptions function
-  var newPassword;
+// runs getPasswordOptions function
+// need to loop => the number of times of user length of passwrod
+// this function must RETURN the generated password as a string
+// get random one
+// user input length - generate number of random elements from array
+  var newPassword  
   var options = getPasswordOptions();
 
   for (var i = 0; i < options[1]; i++) {
-    randomCharacter = getRandom(options[0]);
-
+    var randomCharacter = options[0][Math.floor(Math.random() * options[0].length)];
     newPassword += randomCharacter;
+    console.log(randomCharacter)
   }
-
-  // connect all arrays that user said that want to use
-  // use conditionals to choose which arrays to concatenate
-  // e.g. special charactesr/lowercase
-  // put those arrays together
-  // user input length - generate number of random elements from array
-  // How to ensure password contains at lrast one of each character type? how important is that?
-
-  // get random one
-
-  // need to loop => the number of times of user length of passwrod
-  // this function must RETURN the generated password as a string
+  return newPassword;
 }
 
+  
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
