@@ -150,7 +150,7 @@ function generatePassword() {
 // this function must RETURN the generated password as a string
 // get random one
 // user input length - generate number of random elements from array
-  var newPassword  
+  var newPassword = ""
   var options = getPasswordOptions();
 
   for (var i = 0; i < options[1]; i++) {
